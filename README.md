@@ -14,12 +14,14 @@ A more clear version of this gif can be found on [this](https://github.com/epais
 
 This uses the default Flask development server. 
 
-Markup : 1. Rename .env.dev-sample to .env.dev.
-         2. Build the images and run the containers:
-    ```bash
+1. Rename .env.dev-sample to .env.dev.
+2. Build the images and run the containers:
+    code(
+    ```
     $ docker-compose -f docker-compose.prod.yml up -d --build
     $ docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
     ```
+    )
     Then, test it out at [http://localhost:6272](http://localhost:6272). Your code changes should apply automatically because your "web" folder is mounted into the container.
 
 
@@ -27,12 +29,14 @@ Markup : 1. Rename .env.dev-sample to .env.dev.
 
 This part uses gunicorn + nginx.
 
-Markup : 1. Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db. Update the environment variables.
-         2. Build the images and run the containers:
+1. Rename .env.prod-sample to .env.prod and .env.prod.db-sample to .env.prod.db. Update the environment variables.
+2. Build the images and run the containers:
+    code(
     ```bash
     $ docker-compose -f docker-compose.prod.yml up -d --build
     $ docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
     ```
+    )
     Test it out at [http://localhost:6272](http://localhost:6272). To apply changes, remember to rebuild and spin up the new containers.
 
 ## Uploading Pictures:
